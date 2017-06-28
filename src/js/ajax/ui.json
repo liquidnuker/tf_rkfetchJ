@@ -1,0 +1,86 @@
+{"ui":[
+  {
+    "id": "ui1",
+    "type": "",
+    "src": "check1.svg",
+    "description": "description1",
+    "svg": ""   
+  },
+  {
+    "id": "ui2",
+    "type": "",
+    "src": "home1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui3",
+    "type": "square",
+    "src": "search1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui4",
+    "type": "square",
+    "src": "search1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui5",
+    "type": "circle",
+    "src": "search1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui6",
+    "type": "roundedborder",
+    "src": "search1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui7",
+    "type": "triangle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui8",
+    "type": "triangle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui9",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui10",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui11",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "ui12",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  }
+]}
