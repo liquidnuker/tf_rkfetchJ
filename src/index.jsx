@@ -3,29 +3,28 @@
 
 // external store. internal toggle
 // ======================================================/
-const store = {
-  state: ''
-};
+import {store} from "./store.js";
 
 class RkFetcher extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      prop1: ''
+      msg: 'default'
     };
 
     // binders
+    this.refreshItems = this.refreshItems.bind(this);
   }
 
   //lifecycle hooks
   componentDidMount() {
     console.log("componentDidMount");
+    store.state = "zzzz"
+    this.refreshItems();
   }
 
   fetchJSON() {
     // ajax load then inject
-    store.state = "new message";
-    this.changeMsg();
   }
 
   refreshItems() {
@@ -37,7 +36,7 @@ class RkFetcher extends React.Component {
   render() {
     return (
       <div>
-        
+        <p>{this.state.msg}</p>
       </div>
     );
   }
