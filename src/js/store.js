@@ -1,5 +1,5 @@
 const store = {
-  state: ''
+  msg: ''
 };
 
 export {store};

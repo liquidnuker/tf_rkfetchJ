@@ -1,10 +1,9 @@
 // import React from "react";
 // import ReactDOM from "react-dom";
 
-// external store. internal toggle
-// ======================================================/
 import 'whatwg-fetch';
-import {store} from "./store.js";
+import {store} from "./js/store.js";
+import {checkStatus, parseJSON} from "./js/fetchutils.js";
 
 class RkFetcher extends React.Component {
   constructor(props) {
@@ -14,32 +13,37 @@ class RkFetcher extends React.Component {
     };
 
     // binders
+    this.fetchJSON = this.fetchJSON.bind(this);
     this.refreshItems = this.refreshItems.bind(this);
   }
 
   // lifecycle hooks
   componentDidMount() {
     console.log("componentDidMount");
-    store.state = "zzzz"
-    this.refreshItems();
+    this.fetchJSON();
+    
   }
 
+  // methods
+
   fetchJSON() {
-    // fetch(jsonUrl)
-    // .then(checkStatus)
-    // .then(parseJSON)
-    // .then(function (data) {
-
-    // .then(function () {
-
-    // .catch(function (error) {
-    //   console.log('request failed', error);
-    // });
+    const jsonUrl = "./src/js/ajax/ui.json";
+    let self = this;
+    fetch(jsonUrl)
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(function (data) {
+      store.msg = data.ui;
+      self.refreshItems();
+    })
+    .catch(function (error) {
+      console.log('request failed', error);
+    });
   }
 
   refreshItems() {
     this.setState(prevState => ({
-      msg: store.state
+      msg: store.msg
     }));
   }
 
