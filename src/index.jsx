@@ -3,6 +3,7 @@
 
 // external store. internal toggle
 // ======================================================/
+import 'whatwg-fetch';
 import {store} from "./store.js";
 
 class RkFetcher extends React.Component {
@@ -16,7 +17,7 @@ class RkFetcher extends React.Component {
     this.refreshItems = this.refreshItems.bind(this);
   }
 
-  //lifecycle hooks
+  // lifecycle hooks
   componentDidMount() {
     console.log("componentDidMount");
     store.state = "zzzz"
@@ -24,7 +25,16 @@ class RkFetcher extends React.Component {
   }
 
   fetchJSON() {
-    // ajax load then inject
+    // fetch(jsonUrl)
+    // .then(checkStatus)
+    // .then(parseJSON)
+    // .then(function (data) {
+
+    // .then(function () {
+
+    // .catch(function (error) {
+    //   console.log('request failed', error);
+    // });
   }
 
   refreshItems() {
