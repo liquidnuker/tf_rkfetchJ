@@ -52,16 +52,27 @@ class App extends React.Component {
   }
   
   render() {
-    const listItems = this.state.msg.map((item) =>
-      <li key={item.id}>
-        {item.id} | {item.src}
-      </li>
-      );
-
     return (
+      <div>
+
       <ul>
-        {listItems}
+      {this.state.msg.map((i) =>
+        <li key={i.id}>
+        {i.id} | {i.src}
+        <hr />
+        </li>
+        )}
+      </ul> 
+
+      <ul>
+      {this.state.msg.map((i) =>
+        <li key={i.id}>
+        {i.type}
+        </li>
+        )}
       </ul>
+
+      </div> 
       );
     }  
 }
@@ -70,3 +81,4 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
