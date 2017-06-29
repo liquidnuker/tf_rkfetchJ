@@ -5,35 +5,39 @@ import 'whatwg-fetch';
 import {store} from "./js/store.js";
 import {checkStatus, parseJSON} from "./js/fetchutils.js";
 
-class RkFetcher extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      msg: 'default'
+      msg: store.msg
     };
 
     // binders
-    this.fetchJSON = this.fetchJSON.bind(this);
-    this.refreshItems = this.refreshItems.bind(this);
   }
 
   // lifecycle hooks
   componentDidMount() {
     console.log("componentDidMount");
     this.fetchJSON();
-    
+  }
+  
+  componentWillUnmount() {
+    // abort
   }
 
-  // methods
-
+  // methods  
   fetchJSON() {
-    const jsonUrl = "./src/js/ajax/ui.json";
     let self = this;
+    const jsonUrl = "./src/js/ajax/ui.json";
+    
     fetch(jsonUrl)
     .then(checkStatus)
     .then(parseJSON)
     .then(function (data) {
-      store.msg = data.ui;
+     // inject to external
+     store.msg = data.ui
+    })
+    .then(function() {
       self.refreshItems();
     })
     .catch(function (error) {
@@ -43,20 +47,26 @@ class RkFetcher extends React.Component {
 
   refreshItems() {
     this.setState(prevState => ({
-      msg: store.msg
+        msg: store.msg
     }));
   }
-
+  
   render() {
+    const listItems = this.state.msg.map((item) =>
+      <li key={item.id}>
+        {item.id} | {item.src}
+      </li>
+      );
+
     return (
-      <div>
-        <p>{this.state.msg}</p>
-      </div>
-    );
-  }
+      <ul>
+        {listItems}
+      </ul>
+      );
+    }  
 }
 
 ReactDOM.render(
-  <RkFetcher />,
+  <App />,
   document.getElementById('root')
 );

@@ -1,5 +1,5 @@
 const store = {
-  msg: ''
+  msg: []
 };
 
 export {store};
